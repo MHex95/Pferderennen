@@ -4,6 +4,7 @@ import Funktionen as fkt
 jockey_eins = Pferde.Jockey("Benni", 2)
 pferd_eins = Pferde.Pferd(1, "Benno Breitpferd", 10, jockey_eins)
 
-wettkonto, erfahrung, pferde, spieler = fkt.initialization(Pferde.Konto, Pferde.Jockey)
+wettkonto, pferde, spieler, erfahrung = fkt.initialization(Pferde.Pferd, Pferde.Jockey, Pferde.Konto)
 
-spieler.zeige_jockey()
+for n in pferde:
+    n.zeige_daten()
