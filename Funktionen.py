@@ -135,4 +135,6 @@ def initialization(Pferd, Jockey):
     pferde_liste.append(pferd_fünf)
     jockey_liste.append(jockey_fünf)
 
-    return pferde_liste, jockey_liste, spieler_stats
+    teilnehmer = {"Spieler": spieler_stats, "Pferde": pferde_liste, "Jockeys": jockey_liste}
+
+    return pferde_liste, jockey_liste, spieler_stats, teilnehmer
