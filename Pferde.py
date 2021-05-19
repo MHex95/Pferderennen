@@ -2,11 +2,6 @@ from random import randint
 from math import sqrt
 
 
-class Konto:
-    def __init__(self, kontostand):
-        self.kontostand = kontostand
-
-
 class Jockey:
     def __init__(self, name, können):
         self.name = name
