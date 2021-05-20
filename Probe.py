@@ -12,10 +12,12 @@ for n in pferde_teilnehmer:
     n.zeige_daten()
 
 
-for n in teilnehmer.items():
-    schlüssel, wert = n
+for key, value in teilnehmer.items():
 
-    if teilnehmer[schlüssel] == spieler_stats:
+    if teilnehmer[key] == spieler_stats:
         print("\nKontostand:", teilnehmer["Spieler"]["Balance"])
 
 fkt.pferdemarkt(pferde_reserve)
+
+#for key, value in teilnehmer.items():
+    #print(key, value)

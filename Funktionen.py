@@ -35,13 +35,20 @@ def wetteinsatz(kontostand):
 
 def pferdemarkt(marktliste):
     count = 0
+
+    lustige_beschreibungen = ["Bewegt sich schnell, läuft aber langsam",
+                              "Zumindest ist er schön",
+                              "War Champion in den 0er Jahren, hat aber die besten Zeiten hinter sich",
+                              "Ein furchteinflößendes Tier, ein böser Blick und manch Gegner erstarrt",
+                              "Was machen die Chinesen bloß mit ihren Tieren?!"]
     for n in marktliste:
-        print("\n", n.name)
+        print()
+        print(n.name)
         preise = []
         preis = (count + 1) ** 2 * 200
         preise.append(preis)
-        print(preis)
-        print("irgendwas lustiges")
+        print("Preis:", preis)
+        print(lustige_beschreibungen[count])
 
         count += 1
 
@@ -60,7 +67,7 @@ def pferdemarkt(marktliste):
     print("\n3: Grand Grey")
     preis3 = 5000
     print("Preis: {0} €".format(preis3))
-    print("War Champion in den 0er Jahren, hat die besten Zeiten hinter sich")
+    print("War Champion in den 0er Jahren, hat aber die besten Zeiten hinter sich")
 
     print("\n4: Streitross")
     preis4 = 10000
