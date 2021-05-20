@@ -7,7 +7,7 @@ import tkinter as tk
 def main():
     root = tk.Tk()
     root.title("Pferderennen by Martin")
-    root.resizable(False,False)
+    root.resizable(False, False)
     Hauptfenster = app.Mainmenue(root)
     Hauptfenster.pack()
 
