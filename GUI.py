@@ -46,13 +46,11 @@ class Mainmenue(tk.Frame):
             radiobutton.grid(row=c, column=0)
             c += 1
 
-        wetteingabe = tk.StringVar()
-
         wettbetrag_entry = tk.Entry()
-        wettbetrag_entry["textvariable"] = wetteingabe
         wettbetrag_entry.grid(row=c+1, column=0)
 
-        wettbestätigung = tk.Button(text="Wette platzieren", command=print(int_auswahl, wettbetrag_entry))
+        wettbestätigung = tk.Button(text="Wette platzieren", command=lambda: print(int_auswahl.get(),
+                                                                                   wettbetrag_entry.get()))
         wettbestätigung.grid(row=c+2, column=0)
 
 
