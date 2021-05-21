@@ -4,14 +4,10 @@ import Funktionen as fkt
 import Pferde
 import tkinter as tk
 
+
 def main():
-    root = tk.Tk()
-    root.title("Pferderennen by Martin")
-    root.resizable(False, False)
-    Hauptfenster = app.Mainmenue(root)
-    Hauptfenster.pack()
-
-    root.mainloop()
-
+    pferde_teilnahme, pferde_reserve, jockey_liste, spieler_stats, teilnehmer = \
+        init.initialization(Pferde.Pferd, Pferde.Jockey)
+    app.startgui(pferde_teilnahme)
 
 main()
