@@ -3,6 +3,7 @@ import Funktionen as fkt
 import Pferde
 import tkinter as tk
 import tkinter.font as tkFont
+from tkinter import messagebox
 
 
 def abfrage_wette(pferd_auswahl, wettbetrag):
@@ -72,6 +73,21 @@ def call_race(root, pferde, title_font):
     wettbetrag_entry.grid(row=c+1, column=0, pady=(0, 15))
 
     wettbestätigung = tk.Button(text="Wette platzieren",
-                                    command=lambda: print(teilnehmer[pferd_auswahl.get()][0],
-                                                          wettbetrag_entry.get()))
+                                command=lambda: abfrage(teilnehmer, pferd_auswahl, wettbetrag_entry, rframe))
+
+                                #print(teilnehmer[pferd_auswahl.get()][0],
+                                      #wettbetrag_entry.get()))
     wettbestätigung.grid(row=c+2, column=0)
+
+
+def abfrage(teilnehmer, pferd_auswahl, wettbetrag_entry, rframe):
+    dialog = tk.messagebox. askokcancel(title="Wette bestätigen",
+                                        message="Möchtest du {0} € auf {1} setzen?"
+                                        .format(wettbetrag_entry.get(),
+                                        teilnehmer[pferd_auswahl.get()][0]))
+
+    if dialog is True:
+        print("Das Rennen beginnt!")
+
+    else:
+        print("erneute Auswahl")
