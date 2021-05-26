@@ -43,9 +43,9 @@ def mainmenue(root, pferde):
 
 def call_race(root, pferde, title_font):
     root.destroy()
-    rframe = tk.Toplevel
+    rframe = tk.Tk()
 
-    rframe.label = tk.Label(text="Wette platzieren",font=title_font, width=20)
+    rframe.label = tk.Label(text="Wette platzieren", font=title_font, width=20)
     rframe.label.grid(row=0, column=0)
 
     teilnehmer = []
@@ -81,13 +81,16 @@ def call_race(root, pferde, title_font):
 
 
 def abfrage(teilnehmer, pferd_auswahl, wettbetrag_entry, rframe):
-    dialog = tk.messagebox. askokcancel(title="Wette bestätigen",
+    dialog = tk.messagebox.askokcancel(title="Wette bestätigen",
                                         message="Möchtest du {0} € auf {1} setzen?"
                                         .format(wettbetrag_entry.get(),
                                         teilnehmer[pferd_auswahl.get()][0]))
 
     if dialog is True:
         print("Das Rennen beginnt!")
+        rframe.destroy()
+        pferd_auswahl = teilnehmer[pferd_auswahl.get()][0]
+        wettbetrag = wettbetrag_entry.get
 
     else:
         print("erneute Auswahl")

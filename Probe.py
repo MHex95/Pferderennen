@@ -1,23 +1,40 @@
-import Pferde
-import Funktionen as fkt
-import Initialization as int
-
-jockey_eins = Pferde.Jockey("Benni", 2)
-pferd_eins = Pferde.Pferd(1, "Benno Breitpferd", 10, jockey_eins)
-
-pferde_teilnehmer, pferde_reserve, jockey_liste, spieler_stats, teilnehmer \
-    = int.initialization(Pferde.Pferd, Pferde.Jockey)
-
-for n in pferde_teilnehmer:
-    n.zeige_daten()
+import tkinter as tk
+from tkinter import messagebox
 
 
-for key, value in teilnehmer.items():
+def main():
 
-    if teilnehmer[key] == spieler_stats:
-        print("\nKontostand:", teilnehmer["Spieler"]["Balance"])
+    root = tk.Tk()
+    root.title("Hauptmenü")
 
-fkt.pferdemarkt(pferde_reserve)
+    mainmenue(root)
 
-#for key, value in teilnehmer.items():
-    #print(key, value)
+    root.mainloop()
+
+
+def mainmenue(root):
+    button_rennen = tk.Button(root, text="New Window", width=20,
+                              command=lambda: call_window(root))
+    button_rennen.pack()
+
+
+def call_window(root):
+    root.destroy()
+    rframe = tk.Tk()
+
+    button = tk.Button(text="Wette platzieren",
+                            command=lambda: question(rframe))
+
+    button.pack()
+
+
+def question(rframe):
+    dialog = tk.messagebox.askokcancel(message="Destroy Window?")
+
+
+    if dialog is True:
+        rframe.destroy()
+
+
+main()
+
