@@ -7,33 +7,42 @@ def main():
     root = tk.Tk()
     root.title("Hauptmenü")
 
-    mainmenue(root)
+    Menue = MainMenue(root)
+    Menue.pack()
 
     root.mainloop()
 
 
-def mainmenue(root):
-    button_rennen = tk.Button(root, text="New Window", width=20,
-                              command=lambda: call_window(root))
-    button_rennen.pack()
+class MainMenue(tk.Frame):
+    def __init__(self, parent):
+        super().__init__(parent)
+
+        self.button_rennen = tk.Button(self, text="New Window", width=20, command=lambda: call_bet(self))
+        self.button_rennen.pack()
+
+        def call_bet(root):
+            root.destroy()
+            broot = tk.Tk()
+
+            Bet = BetFrame(broot)
+            Bet.pack()
 
 
-def call_window(root):
-    root.destroy()
-    rframe = tk.Tk()
+class BetFrame(tk.Frame):
+    def __init__(self, parent):
+        super().__init__(parent)
 
-    button = tk.Button(text="Wette platzieren",
-                            command=lambda: question(rframe))
+        self.button = tk.Button(text="Wette platzieren",
+                           command=lambda: question(self))
 
-    button.pack()
-
-
-def question(rframe):
-    dialog = tk.messagebox.askokcancel(message="Destroy Window?")
+        self.button.pack()
 
 
-    if dialog is True:
-        rframe.destroy()
+        def question(rframe):
+            dialog = tk.messagebox.askokcancel(message="Destroy Window?")
+
+            if dialog is True:
+                rframe.destroy()
 
 
 main()
